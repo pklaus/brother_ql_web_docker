@@ -1,4 +1,7 @@
 FROM resin/raspberry-pi-alpine:3.6
+# or for the Raspberry Pi 2/3 (identical):
+#FROM resin/raspberry-pi2-alpine:3.6
+#FROM resin/raspberrypi3-alpine:3.6
 
 # https://docs.resin.io/runtime/resin-base-images/#resin-xbuild-qemu
 RUN [ "cross-build-start" ]
