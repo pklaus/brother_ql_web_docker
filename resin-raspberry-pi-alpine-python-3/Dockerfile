@@ -7,6 +7,8 @@ RUN apk add --update --no-cache \
     freetype-dev \
     build-base \
     ttf-dejavu \
+  # we have to install the packages with pip. We can't use the ones
+  # provided by the system as we are using a custom Python installation:
   && pip install --no-cache-dir pillow jinja2 bottle
 
 RUN git  clone https://github.com/pklaus/brother_ql_web.git
