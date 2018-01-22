@@ -22,11 +22,11 @@ An example for running the application:
       --rm \
       --device=/dev/usb/lp0 \
       --publish 8013:8013 \
-      pklaus/brother_ql_web:resin-raspberry-pi-alpine-python-3_5f1447d \
+      pklaus/brother_ql_web:alpine-3.7_5f1447d \
       ./brother_ql_web.py --model QL-700 file:///dev/usb/lp0
 
-Here, we use the image `pklaus/brother_ql_web:resin-raspberry-pi-alpine-python-3_5f1447d`
-made for the Raspberry Pi 1 / Zero / Zero W.
+Here, we use the image `pklaus/brother_ql_web:alpine-3.7_5f1447d`
+made for x86\_64 CPUs.
 
 ### Compressed Image Sizes
 
