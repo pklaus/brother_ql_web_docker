@@ -13,7 +13,7 @@ RUN apk add --update --no-cache \
     ttf-dejavu \
   # we have to install the packages with pip. We can't use the ones
   # provided by the system as we are using a custom Python installation:
-  && pip install --no-cache-dir pillow jinja2 bottle
+  && pip install --no-cache-dir bottle jinja2 pillow
 
 RUN git  clone https://github.com/pklaus/brother_ql_web.git
 WORKDIR ./brother_ql_web

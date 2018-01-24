@@ -10,11 +10,11 @@ RUN apk add --update --no-cache --virtual .build-deps  \
     curl
 
 RUN apk add --update --no-cache \
-    python3 \
     fontconfig \
     py3-pillow \
     py3-jinja2 \
     py3-bottle \
+    python3 \
     ttf-dejavu
 
 RUN ln -s /usr/bin/python3 /usr/bin/python

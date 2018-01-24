@@ -3,7 +3,7 @@ FROM python:3
 RUN apt-get update \ 
   && apt-get install libfreetype6-dev \
   && rm -f /var/cache/apt/archives/*.deb
-RUN pip install pillow jinja2 bottle
+RUN pip install --no-cache-dir bottle jinja2 pillow
 
 #ADD my_script.py /
 RUN git  clone https://github.com/pklaus/brother_ql_web.git
