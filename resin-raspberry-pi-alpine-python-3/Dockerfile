@@ -20,9 +20,9 @@ WORKDIR ./brother_ql_web
 RUN rm -r .git
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN [ "cross-build-end" ]
-
 RUN apk del .build-deps
+
+RUN [ "cross-build-end" ]
 
 EXPOSE 8013
 
