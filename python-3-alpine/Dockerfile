@@ -15,8 +15,9 @@ RUN apk add --update --no-cache \
     zlib \
   && pip install --no-cache-dir bottle jinja2 pillow
 
-RUN git clone https://github.com/pklaus/brother_ql_web.git
+RUN git clone --depth=1 https://github.com/pklaus/brother_ql_web.git
 WORKDIR ./brother_ql_web
+RUN rm -r .git
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN apk del .build-deps

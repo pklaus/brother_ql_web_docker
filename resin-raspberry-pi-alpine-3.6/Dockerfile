@@ -7,7 +7,7 @@ FROM resin/raspberry-pi-alpine:3.6
 RUN [ "cross-build-start" ]
 
 RUN apk add --update --no-cache --virtual .build-deps  \
-    curl
+    git
 
 RUN apk add --update --no-cache \
     fontconfig \
@@ -19,9 +19,9 @@ RUN apk add --update --no-cache \
     ttf-dejavu
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN curl -sL https://github.com/pklaus/brother_ql_web/archive/${GIT_REF}.tar.gz | tar xz \
- && mv brother_ql_web-${GIT_REF} brother_ql_web
+RUN git clone --depth=1 https://github.com/pklaus/brother_ql_web.git
 WORKDIR ./brother_ql_web
+RUN rm -r .git
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 RUN apk del .build-deps
