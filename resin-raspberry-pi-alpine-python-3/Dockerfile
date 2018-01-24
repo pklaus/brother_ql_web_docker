@@ -3,9 +3,13 @@ FROM resin/raspberry-pi-alpine-python:3
 # https://docs.resin.io/runtime/resin-base-images/#resin-xbuild-qemu
 RUN [ "cross-build-start" ]
 
-RUN apk add --update --no-cache \
-    freetype-dev \
+RUN apk add --update --no-cache --virtual .build-deps  \
     build-base \
+    freetype-dev \
+    git
+
+RUN apk add --update --no-cache \
+    freetype \
     ttf-dejavu \
   # we have to install the packages with pip. We can't use the ones
   # provided by the system as we are using a custom Python installation:
@@ -16,6 +20,8 @@ WORKDIR ./brother_ql_web
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN [ "cross-build-end" ]
+
+RUN apk del .build-deps
 
 EXPOSE 8013
 
