@@ -8,6 +8,7 @@ RUN apk add --update --no-cache --virtual .build-deps  \
 RUN apk add --update --no-cache \
     fontconfig \
     py3-bottle \
+    py3-future \
     py3-jinja2 \
     py3-pillow \
     python3 \
