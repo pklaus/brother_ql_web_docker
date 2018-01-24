@@ -1,7 +1,9 @@
 FROM alpine:3.7
 
+ARG GIT_REF=master
+
 RUN apk add --update --no-cache --virtual .build-deps  \
-    git
+    curl
 
 RUN apk add --update --no-cache \
     python3 \
@@ -12,7 +14,8 @@ RUN apk add --update --no-cache \
     ttf-dejavu
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN git  clone https://github.com/pklaus/brother_ql_web.git
+RUN curl -sL https://github.com/pklaus/brother_ql_web/archive/${GIT_REF}.tar.gz | tar xz \
+ && mv brother_ql_web-${GIT_REF} brother_ql_web
 WORKDIR ./brother_ql_web
 RUN pip3 install --no-cache-dir -r requirements.txt
 
