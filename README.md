@@ -22,7 +22,7 @@ An example for running the application:
       --rm \
       --device=/dev/usb/lp0 \
       --publish 8013:8013 \
-      pklaus/brother_ql_web:alpine-3.7_5f1447d \
+      pklaus/brother_ql_web:alpine-3.7_b1af3e8 \
       ./brother_ql_web.py --model QL-700 file:///dev/usb/lp0
 
 Here, we use the image `pklaus/brother_ql_web:alpine-3.7_5f1447d`
