@@ -35,3 +35,28 @@ Then you can access the web interface over via http://your-docker-host-ip:8013.
 Instead of `--device=/dev/usb/lp0` you might also consider
 `--volume /dev/usb/:/dev/usb/` which should be more robust
 against device disconnects / reconnects.
+
+If you have a **networked printer** like the QL-820NWB, you could start the GUI like this:
+
+```
+docker run \
+  --name brother_ql_web \
+  --detach \
+  --rm \
+  --publish 8013:8013 \
+  --restart=always \
+  pklaus/brother_ql_web:latest \
+  ./brother_ql_web.py --model QL-820NWB tcp://192.168.0.57
+```
+
+For more options, consult the `--help`:
+
+```
+docker run --rm \
+  pklaus/brother_ql_web:latest \
+  ./brother_ql_web.py --help
+```
+
+To **stop/kill and remove the container**, run:
+
+`docker kill brother_ql_web`
