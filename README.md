@@ -1,18 +1,24 @@
 
-## brother\_ql\_web\_docker
+## brother\_ql\_web Dockerfile
 
-This repository contains Dockerfiles to create images with deployments
-of [brother\_ql\_web](https://github.com/pklaus/brother_ql_web), a web interface
+This repository contains the Dockerfile to create images for the application
+[brother\_ql\_web](https://github.com/pklaus/brother_ql_web), a web interface
 to print labels with Brother's QL-series label printers.
 
-Ready to use images can be found on Docker hub: [pklaus/brother\_ql\_web](https://hub.docker.com/r/pklaus/brother_ql_web).
+*Ready to use images* can be found on Docker hub:
+[pklaus/brother\_ql\_web](https://hub.docker.com/r/pklaus/brother_ql_web).
 
-### Available images / tags
+### Base Image / Tags
 
 The image created are based on alpine and built for multiple
 platforms/architectures. Your docker daemon will automatically
 pick a suitable version when pulling the image.
 Running this on a Raspberry Pi works like a charm!
+
+The `:latest` tag is the most up-to-date version of the code.
+Furthermore, there are tags like `:alpine_1234567` available,
+they contain a specific commit of brother\_ql\_web if you want
+to pin your deployment to a specific version.
 
 ### Usage
 
